@@ -14,9 +14,6 @@ def add_intercept(x):
 def predict(x, theta):
     if type(theta) != np.ndarray or type(x) != np.ndarray or x.ndim != 1\
             or theta.ndim != 1 or len(theta) != 2:
-        print ("Holi")
-        print(x.shape)
-        print(theta.shape)
         return None
     else:
         x = add_intercept(x)
@@ -42,8 +39,13 @@ if __name__ == "__main__":
     x1 = np.array([0., 1., 2., 3., 4.])
     theta1 = np.array([2., 4.])
     y_hat1 = predict(x1, theta1)
-    print(y_hat1)
     y1 = np.array([2., 7., 12., 17., 22.])
-    print(y1)
     print(cost_elem_(y1, y_hat1))
     print(cost_(y1, y_hat1))
+
+    x3 = np.array([0, 15, -9, 7, 12, 3, -21])
+    theta3 = np.array([0., 1.])
+    y_hat3 = predict(x3, theta3)
+    y3 = np.array([2, 14, -13, 5, 12, 4, -19])
+    print(cost_(y3, y_hat3))
+    print(cost_(y3, y3))
