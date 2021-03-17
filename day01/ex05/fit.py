@@ -20,9 +20,6 @@ def fit_(x, y, theta, alpha, max_iter):
             or theta.ndim != 1 or len(theta) != 2 or type(y) != np.ndarray\
             or y.ndim != 1 or len(y) != len(x) or type(alpha) != float or\
         type(max_iter) != int or max_iter < 0 :
-        print((x.ndim))
-        print((y.ndim))
-        print((theta.ndim))
         return None
     else:
         new_theta = np.array([float(theta[0]), float(theta[1])])

@@ -15,22 +15,25 @@ def simple_gradient(x, y, theta):
         J = ((h0 - y) @ X)/len(x)
         return((J))
 
-def fit_(x, y, theta, alpha, max_iter):
-    if type(theta) != np.ndarray or type(x) != np.ndarray or x.ndim != 1\
-            or theta.ndim != 1 or len(theta) != 2 or type(y) != np.ndarray\
-            or y.ndim != 1 or len(y) != len(x) or type(alpha) != float or\
-        type(max_iter) != int or max_iter < 0 :
-        print((x.ndim))
-        print((y.ndim))
-        print((theta.ndim))
-        return None
-    else:
-        new_theta = np.array([float(theta[0]), float(theta[1])])
-        for i in range(max_iter):
-            J = simple_gradient(x, y, new_theta)
-            new_theta[0] = new_theta[0] - alpha * J[0]
-            new_theta[1] = new_theta[1] - alpha * J[1]
-        return(new_theta)
+
+
+class MyLinearRegression():
+    def __init__(self, thetas, alpha=0.001, n_cycle=1000):
+        self.alpha = alpha
+        self.max_iter = n_cycle
+        self.thetas = thetas
+
+    def fit_(self, x, y):
+        if  type(x) != np.ndarray or x.ndim != 1 or type(y) != np.ndarray\
+                or y.ndim != 1 or len(y) != len(x):
+            return None
+        else:
+            new_theta = np.array([float(theta[0]), float(theta[1])])
+            for i in range(max_iter):
+                J = simple_gradient(x, y, new_theta)
+                new_theta[0] = new_theta[0] - alpha * J[0]
+                new_theta[1] = new_theta[1] - alpha * J[1]
+            return(new_theta)
 
 
 
