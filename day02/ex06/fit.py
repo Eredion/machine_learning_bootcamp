@@ -16,7 +16,7 @@ def fit_(x, y, thetha, alpha, n_cycles):
     if type(x) != np.ndarray or type(y) != np.ndarray or len(x) == 0 or\
         len(y) == 0 or type(theta) != np.ndarray or len(theta) == 0 or\
         y.shape[0] != x.shape[0] or x.shape[1] != (theta.shape[0] - 1) or\
-        type(alpha) != float or type(n_cycles) != int or n_cycles < 0 :
+        type(alpha) != float or type(n_cycles) != int or n_cycles < 0:
         return None
     for i in range(n_cycles):
         J = gradient(x, y, theta)
